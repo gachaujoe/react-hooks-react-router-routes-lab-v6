@@ -3,6 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { RouterProvider, createMemoryRouter} from "react-router-dom";
 import routes from "../routes.js";
 
+
 const router = createMemoryRouter(routes)
 
 test("renders 'Home Page' inside of an <h1 />", () => {
@@ -34,3 +35,29 @@ test("renders the <NavBar /> component", () => {
   );
   expect(document.querySelector(".navbar")).toBeInTheDocument();
 });
+
+import "@testing-library/jest-dom";
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import MovieList from "../components/MovieList"; // Adjust the import as needed
+
+const movies = [
+  { title: "Doctor Strange" },
+  { title: "Inception" },
+  { title: "Interstellar" },
+];
+
+test("Displays a list of movie titles", async () => {
+  render(
+    <BrowserRouter>
+      <MovieList movies={movies} />
+    </BrowserRouter>
+  );
+
+  const titleList = await screen.findAllByRole('heading', { level: 2 });
+  expect(titleList.length).toBeGreaterThan(2);
+  expect(titleList[0].tagName).toBe("H2");
+  expect(titleList[0].textContent).toBe("Doctor Strange");
+});
+

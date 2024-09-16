@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 
-function Actors() {
+function BadRoutes() {
   return (
     <>
-          <h1>Actors Page</h1>
+          <h1>BadRoutes Page</h1>
+          <p>Oops! Looks like something went wrong.</p>
       <header>
         {/* What component should go here? */}
       </header>
@@ -14,8 +15,8 @@ function Actors() {
   );
 };
 
-export default Actors;
+export default BadRoutes;
 
-// src/pages/Actors.js
+
 
 

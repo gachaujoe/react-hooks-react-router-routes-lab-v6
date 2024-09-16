@@ -11,3 +11,5 @@ function MovieCard({title}) {
 };
 
 export default MovieCard;
+
+
